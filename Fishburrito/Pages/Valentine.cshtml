@@ -1,0 +1,349 @@
+﻿@page "/yyds"
+@model Fishburrito.Pages.Index1Model
+@{
+	ViewData["Title"] = "Happy Valentine's Day";
+}
+
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+	<link href="/css/style.css" rel="stylesheet" />
+	<script src="/js/particlebox.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<style>
+	.navbar {
+		display: none;
+	}
+
+	footer {
+		display: none;
+	}
+	input.input-center{
+		
+		width:400px;
+		padding-left: 100px;
+		padding-right:100px;
+		margin-top:100px;
+		margin-left: auto;
+		margin-right: auto;
+		
+	}
+	.div-center{
+		margin: 60px auto;
+		width:100%;
+		
+	}
+	.shape {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	transform: scale(0.8);
+}
+	.cir {
+		position: absolute;
+		border-radius: 50%;
+		z-index: 5;
+	}
+	.btn-contain {
+		width: 200px;
+		height: 100px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.btn {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 4px;
+		background: #333;
+		text-align: center;
+		z-index: 10;
+		transition: 0.2s;
+		cursor: pointer;
+		color: #fff;
+		box-shadow: 0px 1px 5px 2px #BFCEEF;
+	}
+	.btn:active, .btn:hover, .btn:focus {
+		outline: none !important;
+		color: white;
+	} 
+	.btn-particles {
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		border-radius: 50%;
+		color: #eee;
+		font-family: monospace;
+		z-index: 5;
+	/* 	filter: url(#gooeyness); */
+	}
+	.btn:active {
+		transform: scale(0.9) translate(-55%, -55%);
+	}
+</style>
+
+<div id="background"></div>
+<div id="pswd" style="visibility:visible;" class="div-center">
+
+	
+
+	<div class="btn-contain">
+
+		<input name ="inputbox" type="text" placeholder="Enter the magical number" id="passwd" value="" class="input-center btn">
+
+		
+		<div class="btn-particles">
+		</div>
+	</div>
+	<p id="msg"></p>
+	
+
+	
+	<script>
+		const passwd = document.getElementById("passwd");
+		const msg = document.getElementById("msg");
+		passwd.addEventListener("input",function (){
+			console.log("here");
+			if (passwd.value.length == 6){
+				if (passwd.value == "220414"){
+				document.getElementById("pswd").style="visibility:hidden;";
+				document.getElementById("main").style="display:block;";
+				
+				//console.log("correct");
+				}
+				else{
+					msg.innerHTML = "Wrong number!";
+					//console.log("Wrong number");
+				}
+			} 
+			else if (passwd.value.length < 6){
+				msg.innerHTML = "oop too short (Hint Hint 6 Numbers)";
+				//console.log("oop too short (Hint Hint 6 Numbers)");
+			}
+			else if (passwd.value.length > 6){
+				msg.innerHTML = "oop too long (Hint Hint 6 Numbers)";
+				//console.log("oop too long (Hint Hint 6 Numbers)");
+			}
+			
+		}
+		);
+	</script>
+</div>
+<div id="main" style="display:none;">
+	
+	<!-- Bouncing Heart -->
+	
+	
+	<div id="chest">
+	  <div class="heart left side top"></div>
+	  <div class="heart center">&hearts;</div>
+	  <div class="heart right side"></div>
+	</div> 
+
+	<style>
+		
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background: #111222;
+}
+
+section{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 100px;
+  color: #fff;
+}
+
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-title{
+  font-size: 4em;
+  margin-bottom: 50px;
+}
+
+.content{
+  position: relative;
+  width: 1150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .image{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.content .image img{
+  z-index: 111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.content .text-box{
+  z-index: 222;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transform: translate(-80px, 50px);
+}
+
+.content .text-box h3{
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.media-icons{
+  margin-top: 100px;
+}
+
+.media-icons a{
+  color: #fff;
+  font-size: 2em;
+  margin: 60px;
+}
+
+.section-title{
+  font-size: 3em;
+  margin-bottom: 80px;
+}
+
+.info-title{
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.info{
+  width: 700px;
+  margin-left: 50px;
+}
+
+.media-info{
+  width: 400px;
+  margin-left: 50px;
+}
+
+.media-info li{
+  list-style: none;
+  font-size: 1.4em;
+}
+
+.media-info li a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.media-info li:not(:last-child){
+  margin-bottom: 50px;
+}
+
+.media-info li:nth-child(1), .media-info li:nth-child(5){
+  padding-left: 100px;
+}
+
+.media-info li:nth-child(2), .media-info li:nth-child(4){
+  padding-left: 50px;
+}
+
+.sec-03{
+  margin-bottom: 100px;
+}
+      
+	</style>
+	<section class="sec-01">
+		<div class="container">
+			<h2 class="main-title">Happy Valentine's Day!</h2>
+			<div class="content">
+				<div class="image">
+					<img src="/images/firstday.jpg" alt="">
+				</div>
+				<div class="text-box">
+					<h3>Hello dumdum</h3>
+					<p>
+						I made this thing cuz I didn't want your valentine's day present to be like the other people
+						I wanted to make something cool and special, and as a 电脑猪 I have to make something 电脑
+						So I decided to make this website as a e-love letter kind of thing
+					</p>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	<section class="sec-02">
+		<div class="container">
+			<h3 class="section-title">Sorry dumdum</h3>
+			<div class="content">
+				<div class="image">
+					<img src="/images/bluehat.jpg" alt="">
+				</div>
+				<div class="text-box">
+					<h4 class="info-title">Probably the longest section</h4>
+					<p>
+						Sorry this site looks very ugly, I tried to make it look nicer but then eh...
+						And sorry I didn't prepare any physical stuff for you :( 
+						I thought this will be very creative and special but then now i feel like its very neh
+						But I've already spent quite a lot of time on this and I don't have enough time to make something physical
+						对不起 next Valentine's Day I'll get you a physical present :(
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="sec-03">
+		<div class="container">
+			<h3 class="section-title">Lastly...</h3>
+			<div class="content">
+				<div class="text-box">
+					<p>
+						Hope that you like this
+						Sorry I don't know what to write anymore
+						Oh yes I did not do this with chatGPT, I wrote all these by myself
+					</p>
+				</div>
+				<div class="image">
+					<img src="/images/icecreamcar.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+
+
+</div>
